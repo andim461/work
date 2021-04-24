@@ -1,13 +1,13 @@
-import NameDateInput from "./NameDateInput";
+import MainDataInput from "./MainDataInput/MainDataInput";
 import indexCounter from "../store/indexCounter";
 import { observer } from "mobx-react-lite";
-import EmailInput from "./EmailInput";
-import PasswordInput from "./PasswordInput";
-import Celebrate from "./Celebrate";
+import EmailInput from "./EmailInput/EmailInput";
+import PasswordInput from "./PaswordInput/PasswordInput";
+import Celebrate from "./Celebrate/Celebrate";
 
 const Main = observer(() => {
   const dataFields = [
-    <NameDateInput />,
+    <MainDataInput />,
     <EmailInput />,
     <PasswordInput />,
     <Celebrate />,

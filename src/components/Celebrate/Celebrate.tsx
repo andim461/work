@@ -1,4 +1,4 @@
-import userData from "../store/userData";
+import userData from "../../store/userData";
 import { makeStyles } from "@material-ui/styles";
 import { Typography, Paper } from "@material-ui/core";
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
-import indexCounter from "../store/indexCounter";
+import indexCounter from "../../store/indexCounter";
 import { Button } from "@material-ui/core";
 import {
   KeyboardDatePicker,
@@ -10,15 +10,10 @@ import {
 import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
 import DateFnsUtils from "@date-io/date-fns";
 import { observer } from "mobx-react-lite";
-import userData from "../store/userData";
+import userData from "../../store/userData";
 import { makeStyles } from "@material-ui/core/styles";
+import MainData from "../../interfaces/MainData";
 
-interface FormValues {
-  name: string;
-  surname: string;
-  fatherName: string;
-  birthday: Date | MaterialUiPickersDate;
-}
 const useStyles = makeStyles({
   root: {
     display: "flex",
@@ -50,7 +45,7 @@ const NameDateInput = observer(() => {
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm<FormValues>();
+  } = useForm<MainData>();
   const [date, setDate] = useState<MaterialUiPickersDate>(null);
   const value = watch("birthday") as Date;
   useEffect(() => {
@@ -156,12 +151,7 @@ const NameDateInput = observer(() => {
         color="secondary"
         onClick={handleSubmit((data) => {
           indexCounter.increment();
-          userData.setNameDate(
-            data.name,
-            data.surname,
-            data.fatherName,
-            data.birthday as Date
-          );
+          userData.setMainData(data);
         })}
       >
         Следующий шаг

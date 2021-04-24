@@ -1,6 +1,6 @@
 import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
 import { makeAutoObservable } from "mobx";
-
+import MainData from "../interfaces/MainData";
 interface UserData {
   name: string;
   surname: string;
@@ -9,6 +9,7 @@ interface UserData {
   email: string;
   password: string;
 }
+
 class IndexCounter {
   user: UserData = {
     name: "",
@@ -21,16 +22,11 @@ class IndexCounter {
   constructor() {
     makeAutoObservable(this);
   }
-  setNameDate(
-    name: string,
-    surname: string,
-    fatherName: string,
-    birthday: Date
-  ) {
-    this.user.name = name;
-    this.user.surname = surname;
-    this.user.fatherName = fatherName;
-    this.user.birthday = birthday;
+  setMainData(data: MainData) {
+    this.user.name = data.name;
+    this.user.surname = data.surname;
+    this.user.fatherName = data.fatherName;
+    this.user.birthday = data.birthday;
   }
   setEmail(email: string) {
     this.user.email = email;

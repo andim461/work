@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import TextField from "@material-ui/core/TextField";
-import indexCounter from "../store/indexCounter";
+import indexCounter from "../../store/indexCounter";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { observer } from "mobx-react-lite";
-import userData from "../store/userData";
+import userData from "../../store/userData";
 
 interface FormValues {
   email: string;
